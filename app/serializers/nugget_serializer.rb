@@ -3,10 +3,17 @@ class NuggetSerializer < ActiveModel::Serializer
   belongs_to :theme
   has_many :nugget_tags
   has_many :user_nuggets
-  class NuggetTagSerializer < ActiveModel::Serializer
-    attributes :id, :nugget_id, :tag_id
-  end
-  class UserNuggetSerializer < ActiveModel::Serializer
-    attributes :id, :user_id, :nugget_id
-  end
+  has_many :users
+  # class NuggetTagSerializer < ActiveModel::Serializer
+  #   attributes :id, :nugget_id, :tag_id
+  # end
+  # class UserNuggetSerializer < ActiveModel::Serializer
+  #   belongs_to :users
+  #   attributes :id, :user_id, :nugget_id
+  
+  # end
+  # class UserSerializer < ActiveModel::Serializer
+  #   has_many :user_nuggets
+  #   attributes :id, :username
+  # end
 end

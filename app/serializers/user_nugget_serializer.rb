@@ -1,3 +1,7 @@
 class UserNuggetSerializer < ActiveModel::Serializer
-  attributes :id, :favourite, :completed
+  belongs_to :users
+  belongs_to :nuggets
+  attributes :id, :user_id
+
 end
+

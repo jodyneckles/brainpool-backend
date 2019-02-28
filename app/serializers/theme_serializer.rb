@@ -3,7 +3,6 @@ class ThemeSerializer < ActiveModel::Serializer
   # belongs_to :workspace
   has_many :nuggets
   class NuggetSerializer < ActiveModel::Serializer
-    attributes :id, :title, :img_url, :video_url, :question, :body
-    has_many :nugget_tags
+    attributes :id, :title, :img_url, :video_url, :question, :body, :users
   end
 end

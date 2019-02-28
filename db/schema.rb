@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_165303) do
+ActiveRecord::Schema.define(version: 2019_02_28_102031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_165303) do
     t.bigint "nugget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "completed", default: false
     t.index ["nugget_id"], name: "index_user_nuggets_on_nugget_id"
     t.index ["user_id"], name: "index_user_nuggets_on_user_id"
   end
