@@ -1,4 +1,5 @@
 class Nugget < ApplicationRecord
+  # searchkick
   belongs_to :theme
   has_many :user_nuggets
   has_many :users, through: :user_nuggets

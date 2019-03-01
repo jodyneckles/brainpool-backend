@@ -17,7 +17,8 @@ class Api::V1::NuggetsController < ApplicationController
 
     def create
       @nugget = Nugget.new(nugget_params)
-      if @nugget.valid? @nugget.save
+      if @nugget.valid? 
+        @nugget.save
         render json: @nugget
       else
         render json: {error: "Please complete required fields"}, status: 400
@@ -40,6 +41,6 @@ class Api::V1::NuggetsController < ApplicationController
     end
   
     def nugget_params
-      params.require(:nugget).permit(:title, :img_url, :video_url, :question, :body)
+      params.require(:nugget).permit(:title, :img_url, :video_url, :question, :body, :theme_id)
     end
 end
