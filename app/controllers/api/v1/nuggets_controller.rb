@@ -17,6 +17,7 @@ class Api::V1::NuggetsController < ApplicationController
 
     def create
       @nugget = Nugget.new(nugget_params)
+      # byebug
       if @nugget.valid? 
         @nugget.save
         render json: @nugget
@@ -32,6 +33,11 @@ class Api::V1::NuggetsController < ApplicationController
       else
         render json: {error: "Unable to update Nugget."}, status: :not_acceptable
       end
+    end
+
+    def destroy
+      @tag = Nugget.find(params[:id])
+      @tag.destroy
     end
 
     private

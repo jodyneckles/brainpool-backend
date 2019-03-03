@@ -6,4 +6,5 @@ class User < ApplicationRecord
     has_many :user_nuggets
     has_many :nuggets, through: :user_nuggets
     has_many :themes, through: :workspaces
+
 end
