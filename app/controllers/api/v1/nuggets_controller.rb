@@ -19,7 +19,7 @@ class Api::V1::NuggetsController < ApplicationController
       @nugget = Nugget.new(nugget_params)
       # byebug
       if @nugget.valid? 
-        @nugget.save
+        @nugget.save!
         render json: @nugget
       else
         render json: {error: "Please complete required fields"}, status: 400

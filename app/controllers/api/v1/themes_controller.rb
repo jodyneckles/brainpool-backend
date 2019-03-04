@@ -47,7 +47,7 @@ class Api::V1::ThemesController < ApplicationController
     end
   
     def theme_params
-      params.require(:theme).permit(:name)
+      params.require(:theme).permit(:name, :workspace_id)
     end
 
 
