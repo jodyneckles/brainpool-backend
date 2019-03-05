@@ -15,13 +15,23 @@ class Api::V1::WorkspacesController < ApplicationController
     end
 
     def create
-      @workspace = Workspace.new(workspace_params)
+      user = User.find(params[:user_id])
+      @workspace = Workspace.new(name: params[:workspace][:name], users: [user])
       if @workspace.valid? @workspace.save
         render json: @workspace
       else
         render json: {error: "Please complete required fields"}, status: 400
       end
     end
+
+    # user = User.find(params[:workspace][:user_id])
+    # @workspace = Workspace.new(workspace_params)
+    # @workspace.users = [user]
+    # @workspace.save
+    # OR
+    # user = User.find(params[:workspace][:user_id])
+    # worskpace.new(params[:workspace][:name], users: [user])
+    
 
     def edit
     end
