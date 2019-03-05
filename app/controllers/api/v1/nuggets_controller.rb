@@ -27,7 +27,8 @@ class Api::V1::NuggetsController < ApplicationController
     end
 
     def update
-      @nugget = Nugget.find(params[:id])
+      @nugget = Nugget.find(params[:nugget][:id])
+      # byebug
       if @nugget.update_attributes(nugget_params)
         render json: {error: "Nugget has been updated."}, status: :created
       else
@@ -47,6 +48,6 @@ class Api::V1::NuggetsController < ApplicationController
     end
   
     def nugget_params
-      params.require(:nugget).permit(:title, :img_url, :video_url, :question, :body, :theme_id)
+      params.require(:nugget).permit(:id, :title, :img_url, :video_url, :question, :body, :theme_id)
     end
 end
