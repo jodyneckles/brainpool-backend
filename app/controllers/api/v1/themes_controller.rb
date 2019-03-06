@@ -1,5 +1,5 @@
 class Api::V1::ThemesController < ApplicationController
-    before_action :find_theme, only: [:show, :edit, :update]
+    before_action :find_theme, only: [:show]
 
     def index
       @themes = Theme.all
@@ -27,7 +27,7 @@ class Api::V1::ThemesController < ApplicationController
     end
 
     def update
-      @theme = Theme.find(params[:id])
+      @theme = Theme.find(params[:theme][:id])
       if @theme.update_attributes(theme_params)
         render json: {error: "Theme has been updated."}, status: :created
       else
@@ -47,8 +47,6 @@ class Api::V1::ThemesController < ApplicationController
     end
   
     def theme_params
-      params.require(:theme).permit(:name, :workspace_id)
+      params.require(:theme).permit(:id, :name, :workspace_id)
     end
-
-
 end
