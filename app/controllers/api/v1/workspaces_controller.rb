@@ -15,8 +15,10 @@ class Api::V1::WorkspacesController < ApplicationController
     end
 
     def create
+      # byebug
       user = User.find(params[:user_id])
       @workspace = Workspace.new(name: params[:workspace][:name], users: [user])
+      # UserWorkspace.create(user: user, workspace: @workspace)
       if @workspace.valid? @workspace.save
         render json: @workspace
       else

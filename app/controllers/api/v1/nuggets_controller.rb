@@ -48,6 +48,6 @@ class Api::V1::NuggetsController < ApplicationController
     end
   
     def nugget_params
-      params.require(:nugget).permit(:id, :title, :img_url, :video_url, :question, :body, :theme_id)
+      params.require(:nugget).permit(:id, :title, :img_url, :video_url, :question, :theme_id, :body => {})
     end
 end

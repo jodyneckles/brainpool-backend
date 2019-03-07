@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-jody = User.create(username: 'admin', password: 'admin', admin: true, avatar: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Guy_Fieri_at_Guantanamo_2.jpg')
+jody = User.create(username: 'admin', password: 'admin', admin: true, avatar: 'https://pbs.twimg.com/profile_images/588488665199939585/uPlKFd5P_400x400.jpg')
 graphicsWorkspace = Workspace.create(name: "graphics")
 ingestWorkspace = Workspace.create(name: "ingest")
 softwareDevelopmentWorkspace = Workspace.create(name: "software developement")
